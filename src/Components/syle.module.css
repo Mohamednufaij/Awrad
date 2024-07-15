@@ -1,0 +1,68 @@
+/* Main Heading */
+
+*{
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.mainheading {
+    text-align: center;
+    color: #1a1a1a; /* Dark color */
+    font-size: 2em; /* Adjust as needed */
+    margin: 20px 0;
+  }
+  
+  /* Two Blocks */
+  .block {
+    background-color: #3D550C;
+    color: transparent;
+    padding: 20px;
+    margin: 10px 0;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    color: white;
+  }
+  
+  .block.active {
+    background-color: #333333;
+    color: #FFFFFF;
+  }
+  
+  /* Translation and References Area */
+  .translation-references {
+    background-color: #333333;
+    color: #FFFFFF;
+    padding: 20px;
+    margin: 10px 0;
+  }
+  
+  /* Button */
+  .button {
+    background-color: #ECF87F;
+    color: #333333;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .button:hover {
+    background-color: #c2db6b; /* Slightly darker shade for hover effect */
+  }
+  
+  /* Responsiveness */
+  @media (max-width: 768px) {
+    .block {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+    }
+    
+    .translation-references {
+      display: block;
+      width: 100%;
+    }
+  }
+  
