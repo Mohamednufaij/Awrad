@@ -10,6 +10,8 @@
 body {
   line-height: 1.6;
   padding: 20px; /* Add padding to the body for overall spacing */
+  /* background-color: #e8c9a3; */
+  background-color: #e88d72;
 }
 
 .mainheading {
