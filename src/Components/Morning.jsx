@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import style from './syle.module.css';
-
-const content = [
+const Morning = () => {
+  
+const texts = [
   {
-    title: 'രാവിലെ പതിവാക്കേണ്ട ദുആകളും ദിക്റുകളും',
+    
     arabic: 'الْحَمْدُ لِلهِ وَحْدَهُ، وَالصَّلاَةُ وَالسَّلاَمُ عَلَى مَنْ لاَ نَبِيَّ بَعْدَهُ',
     translation: 'എ‌ല്ലാ സ്‌‌തു‌തി‌യും അ‌ല്ലാ‌ഹു‌വി‌നാ‌ണ്‌; ശേ‌ഷം വേ‌റൊ‌രു ന‌ബി വ‌രാ‌നി‌ല്ലാ‌ത്ത ന‌ബി (മു‌ഹ‌മ്മദ്‌ ﷺ)യു‌ടെ മേൽ അ‌ല്ലാ‌ഹു‌വി‌ന്റെ അ‌നു‌ഗ്ര‌ഹ‌വും സ‌മാ‌ധാ‌ന‌വു‌മു‌ണ്ടാ‌വ‌ട്ടെ.',
     reference: 'അ‌ല്ലാ‌ഹു പ‌റ‌യു‌ന്നു: “നി‌ന്റെ റ‌ബ്ബി‌നെ നീ വ‌ള‌രെ‌യ‌ധി‌കം ഓർ‌ക്കു‌ക. ‘വൈ‌കു‌ന്നേ‌ര‌വും രാവിലേയും’ അ‌വ‌ന്റെ ‌മ‌ഹ‌ത്വ‌വും പ‌രി‌ശു‌ദ്ധി‌യും നീ സ്‌‌തു‌തി‌ച്ചു വാ‌ഴ്‌ത്തു‌ക.” (ആലുഇംറാൻ: 41)',
@@ -181,55 +182,65 @@ const content = [
  
 ];
 
-const Morning = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [showTranslation, setShowTranslation] = useState(false);
-  const [showReference, setShowReference] = useState(false);
+const [isExpanded, setIsExpanded] = useState(false);
+  const [translations, setTranslations] = useState(Array(texts.length).fill(false));
+  const [references, setReferences] = useState(Array(texts.length).fill(false));
 
   const handleExpandClick = () => {
     setIsExpanded(!isExpanded);
   };
 
-  const handleTranslationClick = () => {
-    setShowTranslation(!showTranslation);
+  const handleTranslationClick = (index) => {
+    setTranslations((prev) => {
+      const newTranslations = [...prev];
+      newTranslations[index] = !newTranslations[index];
+      return newTranslations;
+    });
   };
 
-  const handleReferenceClick = () => {
-    setShowReference(!showReference);
+  const handleReferenceClick = (index) => {
+    setReferences((prev) => {
+      const newReferences = [...prev];
+      newReferences[index] = !newReferences[index];
+      return newReferences;
+    });
   };
 
   return (
     
       <div className={style.block}>
-      <h1 onClick={handleExpandClick} style={{ cursor: 'pointer' }}>
-        {content[0].title}
-      </h1>
-      {isExpanded && (
-        <div className={style.active}>
-          {content.map((item, index) => (
-            <div key={index}>
-              <span>{index + 1}</span>
-              <p>{item.arabic}</p>
-              <button onClick={handleTranslationClick} className={style.button}>
-                {showTranslation ? 'Hide Translation' : 'Show Translation'}
-              </button>
-              {showTranslation && <p>{item.translation}</p>}
-              {item.reference && (
-                <>
-                  <button onClick={handleReferenceClick} className={style.button}>
-                    {showReference ? 'Hide Reference' : 'Show Reference'}
-                  </button>
-                  {showReference && <p>{item.reference}</p>}
-                </>
-              )}
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  
+        <h1 onClick={handleExpandClick} style={{ cursor: 'pointer' }}>
+        രാവിലെ പതിവാക്കേണ്ട ദുആകളും ദിക്റുകളും
+        </h1>
+        {isExpanded && (
+          <div>
+            {texts.map((text, index) => (
+              <div key={index} className={style.textContainer}>
+                <span>{index + 1}</span>
+                <p>{text.arabic}</p>
+                <button onClick={() => handleTranslationClick(index)} className={style.button}>
+                  {translations[index] ? 'Hide Translation' : 'Show Translation'}
+                </button>
+                {translations[index] && (
+                  <p>{text.translation}</p>
+                )}
+                <button onClick={() => handleReferenceClick(index)}className={style.button}>
+                  {references[index] ? 'Hide References' : 'Show References'}
+                </button>
+                {references[index] && (
+                  <div>
+                    {text.references.map((ref, refIndex) => (
+                      <p key={refIndex}>{ref}</p>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     
-    );
+  );
 };
 
 export default Morning;
