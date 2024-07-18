@@ -8,7 +8,7 @@ const App = () => {
     <div className={style.mainheading}>
       <span>പ്രപാതവും</span>
       <WiDaySunny size={24} />
-      <span>പ്രാദോഷവും</span>
+      <span>പ്രദോഷവും</span>
       <WiNightAltCloudy size={24} />
       <Morning />
       <Evening />

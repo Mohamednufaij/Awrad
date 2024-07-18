@@ -1,69 +1,115 @@
 /* Main Heading */
 
-*{
+* {
   margin: 0;
   box-sizing: border-box;
   padding: 0;
+  font-family: Arial, sans-serif; /* Modern font */
+}
+
+body {
+  line-height: 1.6;
+  padding: 20px; /* Add padding to the body for overall spacing */
 }
 
 .mainheading {
-    text-align: center;
-    color: #1a1a1a; /* Dark color */
-    font-size: 2em; /* Adjust as needed */
-    margin: 20px 0;
-  }
-  
-  /* Two Blocks */
+  text-align: center;
+  color: #1a1a1a; /* Dark color */
+  font-size: 2.5em; /* Slightly larger font size */
+  margin: 20px 0 40px; /* Add margin-bottom for space below heading */
+  background-color: #e88d72;
+  padding: 20px; /* Increase padding */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Two Blocks */
+.block {
+  background-color: #083b09;
+  color: white;
+  padding: 30px; /* Increase padding */
+  margin: 20px 0; /* Increase margin */
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  border: 1px solid black;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  font-size: 1.2em; /* Adjust font size */
+}
+
+.translation-references {
+  background-color: #333333;
+  color: #FFFFFF;
+  padding: 30px; /* Increase padding */
+  margin: 20px 0; /* Increase margin */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  font-size: 1.1em; /* Adjust font size */
+}
+
+/* Button */
+.button {
+  background-color: #ECF87F;
+  color: #333333;
+  padding: 15px 25px; /* Increase padding */
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  border: 2px solid black;
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  font-size: 1.2em; /* Adjust font size */
+  margin-top: 20px; /* Add margin-top for space above buttons */
+}
+
+.button:hover {
+  background-color: #c2db6b; /* Slightly darker shade for hover effect */
+  transform: translateY(-2px); /* Lift effect on hover */
+}
+
+/* Footer */
+.footer {
+  background-color: #f1f1f1;
+  color: #333333;
+  padding: 20px;
+  text-align: center;
+  margin-top: 40px;
+  border-top: 1px solid #e1e1e1;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
   .block {
-    background-color: #3D550C;
-    color: transparent;
-    padding: 20px;
+    display: block;
+    width: 100%;
     margin: 10px 0;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    color: white;
-    border: 1px solid black;
+    font-size: medium;
   }
   
-  .block.active {
-    background-color: #333333;
-    color: #FFFFFF;
+  .active {
+    margin-top: 10px;
   }
   
-  /* Translation and References Area */
   .translation-references {
-    background-color: #333333;
-    color: #FFFFFF;
-    padding: 20px;
-    margin: 10px 0;
+    display: block;
+    width: 100%;
   }
   
-  /* Button */
   .button {
     background-color: #ECF87F;
     color: #333333;
-    padding: 10px 20px;
-    border: none;
+    padding: 10px 15px; /* Adjust padding */
+    border: 1px solid black;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 5px;
+    border-radius: 5px; /* Rounded corners */
+    height: auto; /* Ensure height adjusts to content */
+    font-size: 1em; /* Ensure font size is readable */
   }
   
-  .button:hover {
-    background-color: #c2db6b; /* Slightly darker shade for hover effect */
+  .footer {
+    font-size: 0.9em;
   }
-  
-  /* Responsiveness */
-  @media (max-width: 768px) {
-    .block {
-      display: block;
-      width: 100%;
-      margin: 10px 0;
-    }
-    
-    .translation-references {
-      display: block;
-      width: 100%;
-    }
-  }
-  
+}
